@@ -1,1 +1,6 @@
 <h1>Events for {{ reportDate | date }}</h1>
+<table>
+  <tr *ngFor="let report of reports">
+    <td> <a [routerLink]="report.file">{{ report.name }}</a></td>
+  </tr>
+</table>

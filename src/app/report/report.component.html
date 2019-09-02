@@ -1,0 +1,14 @@
+<p>
+{{ report.name }}
+</p>
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Viewer Count</th>
+  </tr>
+  
+  <tr *ngFor="let datapoint of report.datapoints">
+    <td>{{ datapoint.time }}</td>
+    <td>{{ datapoint.count }}</td>
+  </tr>
+</table>
