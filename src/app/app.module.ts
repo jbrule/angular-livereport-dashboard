@@ -9,20 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReportListComponent } from './report-list/report-list.component';
 import { ReportService } from './services/report.service';
 import { ReportComponent } from './report/report.component';
+import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   imports:      [
     CustomMaterialModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
+    ChartsModule,
     RouterModule.forRoot([
       { path: '', component: HelloComponent },
       { path: 'reports/:reportDate', component: ReportListComponent },
       { path: 'reports/:reportDate/:reportFile', component: ReportComponent },
       ]), 
   ],
-  declarations: [ AppComponent, HelloComponent, ReportListComponent, ReportComponent ],
+  declarations: [ AppComponent, HelloComponent, ReportListComponent, ReportComponent, ChartComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ReportService]
 })
