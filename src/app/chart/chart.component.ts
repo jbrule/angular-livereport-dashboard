@@ -9,7 +9,15 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 })
 export class ChartComponent implements OnInit {
 
-  @Input('report') reportData;
+  _datapoints;
+  @Input('datapoints') set datapoints(value){
+    this._datapoints = value;
+    this.updateChart();
+  }
+
+  get datapoints(){
+    return this._datapoints;
+  }
 
   public lineChartData; 
   public lineChartLabels: Label[];
@@ -28,14 +36,6 @@ export class ChartComponent implements OnInit {
     }
   };
   public lineChartColors: Color[] = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
     { // dark grey
       backgroundColor: 'rgba(77,83,96,0.2)',
       borderColor: 'rgba(77,83,96,1)',
@@ -43,14 +43,6 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // red
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
   public lineChartLegend = false;
@@ -60,20 +52,14 @@ export class ChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnChanges(changes){
-    if(typeof this.reportData !== undefined){
-    console.log("INIT",this.reportData);
-    const counts = this.reportData.datapoints.map((dp) => { return dp.count }); 
-    const times = this.reportData.datapoints.map((dp) => { return dp.time }); 
-
-    this.lineChartData = [ { data: counts, label: 'Series A' }];
-    this.lineChartLabels = times;
-    }
+  ngOnInit() {
   }
 
-  ngOnInit() {
-
-
+  private updateChart(){
+    const counts = this._datapoints.map((dp) => { return dp.count }); 
+    const times = this._datapoints.map((dp) => { return dp.time }); 
+    this.lineChartData = [ { data: counts, label: 'Viewer Count' }];
+    this.lineChartLabels = times;
   }
 
 }
