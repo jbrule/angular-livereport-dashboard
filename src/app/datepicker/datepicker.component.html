@@ -1,0 +1,8 @@
+  <ngb-datepicker #dp 
+    [(ngModel)]="model"
+    (select)="onDateSelected($event)"
+    (navigate)="onNavigate($event)"
+    [maxDate]="pickerMaxDate"
+    [markDisabled] = "isDayDisabled"
+    firstDayOfWeek="0"
+  ></ngb-datepicker>

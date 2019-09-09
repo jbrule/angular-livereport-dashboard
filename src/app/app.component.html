@@ -1,7 +1,11 @@
-<hello name="{{ name }}"></hello>
-<div class="calendar-wrapper">
-    <mat-calendar #calendar [(selected)]="selectedDate" (selectedChange)="onDateChanged($event)"></mat-calendar>
-</div>
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container-fluid">
+  <hello name="{{ name }}"></hello>
+  <div class="row">
+  <div class="calendar-wrapper col-2" style="min-width:240px">
+    <app-datepicker (selected)="onDateSelected($event)"></app-datepicker>
+  </div>
+  <div class="col-10">
+    <router-outlet></router-outlet>
+  </div>
+  </div>
 </div>

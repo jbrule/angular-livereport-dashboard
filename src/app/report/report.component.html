@@ -1,15 +1,18 @@
-<app-chart [datapoints]="report.datapoints"></app-chart>
+<app-chart *ngIf="report.datapoints" [datapoints]="report.datapoints"></app-chart>
 <p>
 {{ report.name }}
 </p>
-<table>
-  <tr>
-    <th>Time</th>
-    <th>Viewer Count</th>
-  </tr>
-  
-  <tr *ngFor="let datapoint of report.datapoints">
-    <td>{{ datapoint.time }}</td>
-    <td>{{ datapoint.count }}</td>
-  </tr>
+<table *ngIf="report.datapoints" class="table table-xtra-condensed">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Viewer Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let datapoint of report.datapoints">
+      <td>{{ datapoint.time }}</td>
+      <td>{{ datapoint.count }}</td>
+    </tr>
+  </tbody>
 </table>

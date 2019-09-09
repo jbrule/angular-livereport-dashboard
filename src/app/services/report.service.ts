@@ -10,7 +10,14 @@ export class ReportService {
     const params = new HttpParams()
     .set('date', date);
 
-    return this.http.get("https://r5033275/", {params});
+    return this.http.get("https://localhost/", {params});
+  }
+
+  getReportsForMonth(month){
+    const params = new HttpParams()
+    .set('date', month);
+
+    return this.http.get("https://localhost/", {params});
   }
 
   getReport(date,file){
@@ -18,7 +25,7 @@ export class ReportService {
     .set('date', date)
     .set('file', file);
 
-    return this.http.get("https://r5033275/", {params});
+    return this.http.get("https://localhost/", {params});
   }
 
 }
