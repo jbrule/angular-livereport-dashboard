@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  name = 'Angular';
+  name = 'Video Exchange Live Event Reporting Dashboard';
 
   constructor(private router: Router) { }
 

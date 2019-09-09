@@ -13,9 +13,9 @@ export class ReportService {
     return this.http.get("https://localhost/", {params});
   }
 
-  getReportsForMonth(month){
+  getReportsForPeriod(period){
     const params = new HttpParams()
-    .set('date', month);
+    .set('date', period);
 
     return this.http.get("https://localhost/", {params});
   }
