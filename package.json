@@ -20,7 +20,7 @@
     "moment": "^2.18.1",
     "ng2-charts": "^2.3.0",
     "rxjs": "^6.5.2",
-    "zone.js": "^0.9.1"
+    "zone.js": "^0.11.4"
   },
   "scripts": {
     "ng": "ng",
